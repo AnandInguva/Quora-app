@@ -1,0 +1,43 @@
+{
+  "name": "quora-app",
+  "version": "1.0.0",
+  "description": "Building a clone  of quora app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnandInguva/Quora-app.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "React",
+    "Javascript"
+  ],
+  "author": "Anand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnandInguva/Quora-app/issues"
+  },
+  "homepage": "https://github.com/AnandInguva/Quora-app#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.2.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.10",
+    "sqlite": "^4.0.9"
+  }
+}
