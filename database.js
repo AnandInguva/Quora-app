@@ -6,17 +6,33 @@ const sequelize = new Sequelize({
     storage: './Data/users.sqlite'
 });
 
-try {
-    sequelize.authenticate();
-    console.log(`Connection established`);
-} catch (error) {
-    console.log('Unable to connect to the database, error is ' + error);
-}
-
 class User extends Model {}
-User.init({
-    username: { type: Sequelize.STRING, allowNull: false },
-    password: { type: Sequelize.STRING, allowNull: false }
-});
 
-exports.User = User;
+exports.user = {
+    initUser: initUser,
+    userClass: User
+};
+
+async function initUser() {
+    return new Promise((resolve) => {
+        User.init({
+            firstName: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+            lastName: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+            email: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+            password: {
+                type: Sequelize.STRING,
+                allowNull: false
+            }
+        }, { sequelize, modelName: 'users' });
+        resolve();
+    });
+}
