@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/users');
 
 const verify = async(req, res, next) => {
-    const token = req.headers.authorization;
+    const token = req.get('Authorization');
     if (!token) {
         return res.status(401).json({
             message: 'Not authenticated'

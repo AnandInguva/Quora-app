@@ -1,42 +1,57 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+/*
+User schema -> 
+            id: email
+            firstName: first name
+            lastName: last name
+            auth.email: email
+            auth.password: password
+            questions: [questions]
+            answers: [answers]
+*/
+
 const userSchema = new Schema({
     _id: {
         type: String,
-        required: true,
+        required: true
     },
     firstName: {
         type: String,
-        required: true,
+        required: true
     },
     lastName: {
         type: String,
-        required: true,
+        required: true
     },
     auth: {
         email: {
             type: String,
-            required: true,
+            required: true
         },
         password: {
             type: String,
-            required: true,
-        },
+            required: true
+        }
     },
 
     questions: [{
         type: Schema.Types.ObjectId,
-        ref: 'Question',
-    }, ],
+        ref: 'Question'
+    }],
     answers: [{
         type: Schema.Types.ObjectId,
-        ref: 'Question',
-    }, ],
+        ref: 'Question'
+    }],
     upVotes: [{
         type: Schema.Types.ObjectId,
-        ref: 'Question',
-    }, ],
+        ref: 'Question'
+    }],
+    downVotes: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Question'
+    }]
 });
 
 module.exports = mongoose.model('User', userSchema);
