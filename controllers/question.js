@@ -22,10 +22,6 @@ router.get('/', verifyToken, async(req, res, next) => {
     }
 });
 
-const pushQuestionToUser = async(req, res) => {
-    
-
-}
 
 
 //get all the questions from the data
