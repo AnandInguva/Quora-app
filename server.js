@@ -2,7 +2,6 @@ const dotenv = require('dotenv');
 
 const app = require('./app');
 const mongoose = require('mongoose');
-const { getMaxListeners } = require('./models/users');
 // import models
 
 User = require('./models/users');
@@ -10,10 +9,7 @@ Question = require('./models/questions');
 
 dotenv.config({ path: './config.env' });
 // console.log(process.env.DATABASE);
-const DB = process.env.DATABASE.replace(
-    '<PASSWORD>',
-    process.env.DATABASE_PASSWORD
-);
+const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
 // the objects in the user are used for the deprication warnings
 
@@ -22,7 +18,7 @@ mongoose
         useNewUrlParser: true,
         useCreateIndex: true,
         useFindAndModify: false,
-        useUnifiedTopology: true,
+        useUnifiedTopolgy: true
     })
     .then((con) => {
         console.log('DB connection successful');

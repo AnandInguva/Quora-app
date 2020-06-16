@@ -15,43 +15,44 @@ User schema ->
 const userSchema = new Schema({
     _id: {
         type: String,
-        required: true
+        required: true,
     },
     firstName: {
         type: String,
-        required: true
+        required: true,
     },
     lastName: {
         type: String,
-        required: true
+        required: true,
     },
     auth: {
         email: {
             type: String,
-            required: true
+            required: true,
         },
         password: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
 
     questions: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Question'
-    }],
+        type: String,
+        ref: 'Question',
+    }, ],
     answers: [{
         type: Schema.Types.ObjectId,
-        ref: 'Question'
-    }],
+        ref: 'Question',
+    }, ],
     upVotes: [{
         type: Schema.Types.ObjectId,
-        ref: 'Question'
-    }],
+        ref: 'Question',
+    }, ],
     downVotes: [{
         type: Schema.Types.ObjectId,
-        ref: 'Question'
-    }]
+        ref: 'Question',
+    }, ],
 });
 
+// create the model with Model name and the schema
 module.exports = mongoose.model('User', userSchema);
