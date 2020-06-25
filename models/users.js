@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+const validator = require('validator');
 /*
 User schema -> 
             id: email
@@ -15,43 +15,47 @@ User schema ->
 const userSchema = new Schema({
     _id: {
         type: String,
-        required: true,
+        required: true
     },
     firstName: {
         type: String,
-        required: true,
+        required: true
     },
     lastName: {
         type: String,
-        required: true,
+        required: true
     },
     auth: {
         email: {
             type: String,
-            required: true,
+            required: [true, 'Please provide an email'],
+            unique: true,
+            lowercase: true,
+            validate: [validator.isEmail, 'Please provide a valid email']
         },
         password: {
             type: String,
             required: true,
-        },
+            minLength: 8
+        }
     },
-
+    photo: String,
     questions: [{
         type: String,
-        ref: 'Question',
-    }, ],
+        ref: 'Question'
+    }],
     answers: [{
         type: Schema.Types.ObjectId,
-        ref: 'Question',
-    }, ],
+        ref: 'Question'
+    }],
     upVotes: [{
         type: Schema.Types.ObjectId,
-        ref: 'Question',
-    }, ],
+        ref: 'Question'
+    }],
     downVotes: [{
         type: Schema.Types.ObjectId,
-        ref: 'Question',
-    }, ],
+        ref: 'Question'
+    }]
 });
 
 // create the model with Model name and the schema
