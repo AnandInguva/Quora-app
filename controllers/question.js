@@ -4,7 +4,7 @@ const Question = require('../models/questions');
 const User = require('../models/users');
 const router = express.Router();
 
-<<<<<<< HEAD
+
 router
     .get('/', verifyToken, async(req, res, next) => {
         try {
@@ -23,7 +23,7 @@ router
             next(error);
         }
     });
-=======
+
 router.get('/', verifyToken, async(req, res, next) => {
     try {
         const questions = await Question.find();
@@ -42,8 +42,6 @@ router.get('/', verifyToken, async(req, res, next) => {
     }
 });
 
-
->>>>>>> 08fc20fc0a638c4d4b0f2b56a73d7507e256ebe8
 
 //get all the questions from the data
 router.post('/', verifyToken, async(req, res, next) => {
