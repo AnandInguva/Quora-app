@@ -13,11 +13,7 @@ router.post('/signup', async(req, res, next) => {
             });
         }
 
-        if (req.body.password != req.body.passwordConfirm) {
-            res.status(400).json({
-                message: "Passwords don't match"
-            });
-        }
+        
 
         const password = await bcrypt.hash(req.body.password, 10);
 
